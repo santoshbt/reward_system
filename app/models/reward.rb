@@ -13,7 +13,9 @@ class Reward < ApplicationRecord
       event = JSON.parse(event.to_json, object_class: OpenStruct)
       create(event_participants) unless event.participants.value.blank?
 
-      Calculator.new(event.acceptor).calculate_points unless event.acceptor.value.blank?
+      Calculator.new(event.acceptor).calculate_points unless event.acceptor.value.blank?      
     end
+
+    Calculator.overall_points
   end
 end

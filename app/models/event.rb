@@ -10,23 +10,21 @@ class Event
   def row_values
     required_values = event_row.split(" ")
     date, time = required_values.take(2)
-    puts required_values.inspect
 
     if required_values[3] == RECOMMENDS      
-      recommended_date = recommendation_date(date, time)
+      recommended_date = format_date(date, time)
       value = required_values[2]
       invitee = required_values[4] 
     else
       acceptor_value = required_values[2]
-      accepted_date = recommendation_date(date, time)      
+      accepted_date = format_date(date, time)      
     end
     return [ participants: { value: value, invitee: invitee, recommendation_sent_on: recommended_date },
              acceptor: { value: acceptor_value, accepted_date: accepted_date } ]
   end
 
-  def recommendation_date(date, time)
+  def format_date(date, time)
     date_time = date + " " + time
     DateTime.parse(date_time)
   end
-
 end
