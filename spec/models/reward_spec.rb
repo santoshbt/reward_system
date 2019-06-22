@@ -12,7 +12,7 @@ RSpec.describe Reward, type: :model do
   end
 
   it "takes recommendation events and outputs individual points" do
-    points = Reward.create_reward(data) 
+    points = Reward.customer_rewards(data) 
     expect(points).to eq({"A"=>1.75, "B"=>1.5, "C"=>1.0})
   end
 end
