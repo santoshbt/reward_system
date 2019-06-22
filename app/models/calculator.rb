@@ -23,12 +23,9 @@ class Calculator
     end
   end
 
-  def self.overall_points
-    rewards = Reward.pluck(:value, :points)
-    Hash[ rewards.sort_by { |key, val| key } ]
-  end
-
   private
+
+  ### Find the reward based on the first recommendation sent to invitee
   def update_points(invitee, points)
     invitor = Reward.where("invitee = ?", invitee).order("recommendation_sent_on ASC").first
     invitor.update_attributes(points: points, accept_flag: true) unless invitor.nil?

@@ -10,6 +10,6 @@ class Input
   end
 
   def get_input_rows
-    data.split("\n").collect(&:strip)
+    data.split("\n").collect(&:strip) unless data.blank?
   end
 end

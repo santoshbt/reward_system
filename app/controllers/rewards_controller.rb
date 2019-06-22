@@ -3,8 +3,8 @@ class RewardsController < ApplicationController
     path = Rails.root.join('public','input.txt')
     input_lines = FileReader.new(path).read_data
 
-    Reward.assign(input_lines)
-    rewards = Calculator.overall_points   
+    Reward.assign_points(input_lines)
+    rewards = Reward.overall_points   
     
     render json: rewards, status: :ok
   end
