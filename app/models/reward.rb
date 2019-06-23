@@ -3,11 +3,9 @@ class Reward < ApplicationRecord
   attr_reader :data
   validates :value, presence: true
   validates :invitee, presence: true
-  delegate :format_data, to: :input_events
 
   def self.customer_rewards(data)
-    input_data = Input.new(data)
-    input_events = input_data.format_data
+    input_events = Input.new(data).format_data
     assign_points(input_events)    
     overall_points
   end
