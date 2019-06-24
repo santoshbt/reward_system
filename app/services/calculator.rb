@@ -9,18 +9,23 @@ class Calculator
   end
 
   def calculate_points
-    invitee = acceptor.value
-    first_level_invitor = update_points(invitee, DIRECT_INVITOR_POINTS)
+    ActiveRecord::Base.transaction do
+      invitee = acceptor.value
+      first_level_invitor = update_points(invitee, DIRECT_INVITOR_POINTS)
 
-    invitee = first_level_invitor.value
-    second_level_points = first_level_invitor.points + FIRST_COEFFICIENT
-    second_level_invitor = update_points(invitee, second_level_points)
+      invitee = first_level_invitor.value
+      second_level_points = first_level_invitor.points + FIRST_COEFFICIENT
+      second_level_invitor = update_points(invitee, second_level_points)
 
-    unless second_level_invitor.blank?
-      invitee = second_level_invitor.value
-      third_level_points = second_level_invitor.points + SECOND_COEFFICIENT
-      third_level_invitor = update_points(invitee, third_level_points)
+      unless second_level_invitor.blank?
+        invitee = second_level_invitor.value
+        third_level_points = second_level_invitor.points + SECOND_COEFFICIENT
+        third_level_invitor = update_points(invitee, third_level_points)
+      end
     end
+
+    rescue ActiveRecord::RecordInvalid
+      puts "The operation did not end properly"
   end
 
   private
