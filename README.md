@@ -21,6 +21,7 @@ check using console
   2018-06-25 09:41 D accepts" 
 
   Reward.customer_rewards(data)
+  {"A"=>1.75, "B"=>1.5, "C"=>1.0}
 
 check in postman
 ---------------
