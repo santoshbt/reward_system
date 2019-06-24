@@ -1,26 +1,27 @@
 Reward System
 --------------
 
-Softwares installed
-Ruby - ruby 2.5.0p0 (2017-12-25 revision 61468) [x86_64-darwin18]
-Rails - Rails 5.2.3
-postgres - (PostgreSQL) 9.6.11
-Gems: rspec, pg
+Softwares installed 
+Ruby - ruby 2.5.0p0 (2017-12-25 revision 61468) [x86_64-darwin18] 
+Rails - Rails 5.2.3 
+postgres - (PostgreSQL) 9.6.11 
+Gems: rspec, pg 
 
-run rake db:create
+run rake db:create 
     rake db:migrate
 
 check using console
 -------------------
-  data = "2018-06-12 09:41 A recommends B
-  2018-06-14 09:41 B accepts
-  2018-06-16 09:41 B recommends C
-  2018-06-17 09:41 C accepts
-  2018-06-19 09:41 C recommends D
-  2018-06-23 09:41 B recommends D
-  2018-06-25 09:41 D accepts"
+  data = "2018-06-12 09:41 A recommends B <br />
+  2018-06-14 09:41 B accepts <br />
+  2018-06-16 09:41 B recommends C <br />
+  2018-06-17 09:41 C accepts <br />
+  2018-06-19 09:41 C recommends D <br />
+  2018-06-23 09:41 B recommends D <br />
+  2018-06-25 09:41 D accepts" 
 
-  Reward.customer_rewards(data)
+  Reward.customer_rewards(data) <br />
+  {"A"=>1.75, "B"=>1.5, "C"=>1.0}
 
 check in postman
 ---------------
