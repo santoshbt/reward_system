@@ -20,7 +20,7 @@ check using console
   2018-06-23 09:41 B recommends D <br />
   2018-06-25 09:41 D accepts" 
 
-  Reward.customer_rewards(data)
+  Reward.customer_rewards(data) <br />
   {"A"=>1.75, "B"=>1.5, "C"=>1.0}
 
 check in postman
