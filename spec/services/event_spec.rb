@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Event, type: :model do
-  describe '.row_values' do    
+  describe '#row_values' do    
     let(:data) do
      "2018-06-12 09:41 A recommends B"
     end

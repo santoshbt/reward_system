@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Input do
-  describe '.format_data' do    
+  describe '#format_data' do    
     let(:data) do
      "2018-06-12 09:41 A recommends B
      2018-06-14 09:41 B accepts
